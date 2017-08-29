@@ -30,6 +30,24 @@ view: stoqs_measuredparameter {
     type: sum
     sql: ${datavalue} ;;
   }
+  measure: salanity {
+    type: sum
+    sql: ${datavalue} ;;
+    filters: {
+      field:stoqs_parameter.standard_name
+      value: "sea_water_salinity"
+    }
+  }
+  measure:  sea_water_temperature {
+    type: sum
+    sql: ${datavalue} ;;
+    filters: {
+      field:stoqs_parameter.standard_name
+      value: "sea_water_temperature"
+    }
+  }
+
+
 
   measure: count {
     type: count

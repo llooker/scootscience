@@ -26,6 +26,10 @@ view: stoqs_measuredparameter {
     type: number
     sql: ${TABLE}.parameter_id ;;
   }
+  measure: total_datavalue {
+    type: sum
+    sql: ${datavalue} ;;
+  }
 
   measure: count {
     type: count

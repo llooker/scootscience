@@ -21,6 +21,21 @@ view: stoqs_measurement {
     type: string
     sql: ${TABLE}.geom ;;
   }
+  dimension: long {
+    description: "Longitute"
+   type: number
+   sql:ST_X(${geom}) ;;
+  }
+  dimension: lat {
+    type: number
+    description: "Latitude"
+    sql:ST_Y(${geom}) ;;
+  }
+  dimension: location {
+    type: location
+    sql_latitude: ${lat} ;;
+    sql_longitude: ${long} ;;
+  }
 
   dimension: instantpoint_id {
     type: number

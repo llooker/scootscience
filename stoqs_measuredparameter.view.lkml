@@ -14,7 +14,7 @@ view: stoqs_measuredparameter {
 
   dimension: datavalue {
     type: number
-    sql: ${TABLE}.datavalue ;;
+    sql: 1.0*${TABLE}.datavalue ;;
   }
 
   dimension: measurement_id {

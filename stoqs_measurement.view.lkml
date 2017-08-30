@@ -16,7 +16,13 @@ view: stoqs_measurement {
     type: number
     sql: ${TABLE}.depth ;;
   }
+  dimension: depth_tiers {
+    type: tier
+    tiers: [0,10,20,30,40,50]
+    sql: ${depth} ;;
+    style: integer
 
+  }
   dimension: geom {
     type: string
     sql: ${TABLE}.geom ;;

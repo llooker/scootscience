@@ -28,4 +28,17 @@ explore: stoqs_measuredparameter {
     relationship: many_to_one
     sql_on: ${stoqs_measuredparameter.id} = ${stoqs_measuredparameter.id} ;;
   }
+  join: stoqs_instantpoint {
+    view_label: "Stoqs Measurement"
+    relationship: one_to_one
+    sql_on: ${stoqs_instantpoint.id} = ${stoqs_measurement.instantpoint_id} ;;
+  }
+  join: stoqs_activity {
+    relationship: one_to_many
+    sql_on: ${stoqs_activity.activitytype_id} = ${stoqs_instantpoint.activity_id} ;;
+  }
+  join: stoqs_platform {
+    relationship: many_to_one
+    sql_on: ${stoqs_platform.platformtype_id} = ${stoqs_activity.platform_id} ;;
+  }
 }

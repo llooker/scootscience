@@ -22,15 +22,15 @@ explore: stoqs_measuredparameter {
   label: "scootscience_101"
   join: stoqs_parameter {
     relationship: many_to_one
-    sql_on: ${stoqs_measuredparameter.id} = ${stoqs_parameter.id} ;;
+    sql_on: ${stoqs_measuredparameter.parameter_id} = ${stoqs_parameter.id} ;;
   }
   join: stoqs_measurement {
     relationship: many_to_one
-    sql_on: ${stoqs_measuredparameter.id} = ${stoqs_measuredparameter.id} ;;
+    sql_on: ${stoqs_measuredparameter.measurement_id}= ${stoqs_measurement.id} ;;
   }
   join: stoqs_instantpoint {
-    view_label: "Stoqs Measurement"
-    relationship: one_to_one
+    #view_label: "Stoqs Measurement"
+    relationship: many_to_one
     sql_on: ${stoqs_instantpoint.id} = ${stoqs_measurement.instantpoint_id} ;;
   }
   join: stoqs_activity {

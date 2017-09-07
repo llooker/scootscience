@@ -31,7 +31,7 @@ view: stoqs_measuredparameter {
     sql: ${datavalue} ;;
   }
   measure: salanity {
-    type: sum
+    type: average
     sql: ${datavalue} ;;
     filters: {
       field:stoqs_parameter.standard_name
@@ -39,7 +39,7 @@ view: stoqs_measuredparameter {
     }
   }
   measure:  sea_water_temperature {
-    type: sum
+    type: average
     sql: ${datavalue} ;;
     filters: {
       field:stoqs_parameter.standard_name

@@ -104,15 +104,19 @@ explore: stoqs_measuredparameter {
     sql_on: ${stoqs_nominallocation.id} = ${stoqs_measurement.nominallocation_id};;
   }
   # # having trouble with the joins below--should be resourcetype to resource, but resource view not available for some reason
-  # # join: stoqs_resourcetype {
-  # #  relationship: one_to_one
-  # # sql_on: ${stoqs_resourcetype.id} = ${stoqs_resource} ;;
-  # #}
-  # # STOQs ducmentation says this next join should be many_to_many but having similar problems here...
-  # #join: stoqs_resource {
-  # #  relationship: many_to_many
-  # # sql_on: ${stoqs_parameterresource_id} = ${stoqs_resource.id} ;;
-  # #}
+   join: stoqs_resourcetype {
+   relationship: one_to_one
+   sql_on: ${stoqs_resourcetype.id} = ${stoqs_resource.id} ;;
+  }
+   # STOQs ducmentation says this next join should be many_to_many but having similar problems here...
+  join: stoqs_resource {
+  relationship: many_to_many
+  sql_on: ${stoqs_parameterresource.id} = ${stoqs_resource.id} ;;
+  }
+  join: stoqs_parameterresource {
+    relationship: many_to_many
+    sql_on: ${stoqs_parameterresource.parameter_id}=${stoqs_parameter.id} ;;
+  }
   # #join: stoqs_analysismethod {
   # #  relationship: one_to_many
   # # sql_on: ${stoqs_analysismethod.id} = ${stoqs_sampledparameter};;

@@ -1,4 +1,5 @@
-connection: "stoqs_initial"
+# connection: "stoqs_initial" # test database
+connection: "canon2015"
 
 include: "*.view.lkml"         # include all views in this project
 include: "*.dashboard.lookml"  # include all dashboards in this project
